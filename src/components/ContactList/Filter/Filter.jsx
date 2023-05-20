@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import FormGroup from 'components/UI/FormGroup/FormGroup';
 
-const Filter = ({ filter, filterContacts }) => {
+const Filter = ({ filter, setFilter }) => {
   return (
     <FormGroup>
       <label htmlFor="filter">Find contacts by name</label>
@@ -10,7 +10,7 @@ const Filter = ({ filter, filterContacts }) => {
         id="filter"
         name="filter"
         value={filter}
-        onChange={({ target }) => filterContacts(target.value)}
+        onChange={({ target }) => setFilter(target.value)}
       />
     </FormGroup>
   );
@@ -18,7 +18,7 @@ const Filter = ({ filter, filterContacts }) => {
 
 Filter.propTypes = {
   filter: PropTypes.string.isRequired,
-  filterContacts: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;

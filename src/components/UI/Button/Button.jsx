@@ -31,7 +31,7 @@ const Button = styled.button.attrs(({ small }) => ({
 `;
 
 Button.propTypes = {
-  small: PropTypes.string,
+  small: PropTypes.bool,
 };
 
 export default Button;

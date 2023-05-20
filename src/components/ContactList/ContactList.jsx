@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 import Button from 'components/UI/Button/Button';
 import ContactListStyled from './ContactListStyled';
 
-const ContactList = ({ contacts, removeContact }) => {
+const ContactList = ({ contacts, dispatch }) => {
   return (
     <ContactListStyled>
       {contacts.map(({ id, name, number }) => (
         <li key={id}>
           <div>
             {name}: {number}{' '}
-            <Button small type="submit" onClick={() => removeContact(id)}>
+            <Button
+              small
+              type="submit"
+              onClick={() => dispatch({ type: 'REMOVE_CONTACT', payload: id })}
+            >
               Delete
             </Button>
           </div>
@@ -27,7 +31,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ),
-  removeContact: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default ContactList;
